@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PH-Tube</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        .active{
+            background-color: #FF1F3D;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="w-11/12 mx-auto flex justify-between border-b-2 border-[#17171720] py-6">
+            <div class="logo">
+                <img class="" src="./assets/Logo.png" alt="">
+            </div>
+            <div class="Sort">
+                <label class="input">
+                    <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" 
+                        viewBox="0 0  24 24">
+                        <g
+                            stroke-linejoin="round"
+                            stroke-linecap="round"
+                            stroke-width="2.5"
+                            fill="none"
+                            stroke="currentColor"
+                            >
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.3-4.3"></path>
+                        </g>
+                    </svg>
+                    <input id="search_input" type="search" required placeholder="Search" />
+                </label>
+            </div>
+            <div class="blog">
+                <button class="btn text-lg text-white bg-red-600 rounded-lg">Sort by view</button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <nav>
+            <div id="Categories-container" class="  flex justify-center gap-10 py-7">
+                <button id="btn-all" onclick="loadVideos()" class="btn px-6  text-base ">All</button>
+            </div>
+        </nav>
+        <section>
+            <div id="videos-Containar" class="w-11/12 mx-auto grid grid-cols-4 gap-5">
+                
+            </div>
+            <div class="flex flex-col justify-center items-center text-center py-40 gap-6">
+                <img src="./assets/Icon.png" alt="">
+                <h2 class="font-bold text-3xl">Oops!! Sorry, There is no content here</h2>
+            </div>
+        </section>
+
+
+        <!-- Open the modal using ID.showModal() method -->
+        <!-- <button class="btn" onclick="video_Details.showModal()">open modal</button> -->
+        <dialog id="video_Details" class="modal">
+            <div class="modal-box">
+                <div id="details_container"></div>
+            </div>
+            <form method="dialog" class="modal-backdrop">
+                <button>close</button>
+            </form>
+        </dialog>
+
+
+
+    </main>
+    <script src="./script/phtube.js"></script>
+</body>
+</html>
