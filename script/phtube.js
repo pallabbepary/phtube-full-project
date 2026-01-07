@@ -85,7 +85,52 @@ function displayCategories(categories){
 }
 
 
+const displayVideos = (videos) => {
+    const videosContainar = document.getElementById("videos-Containar");
+    
+    videosContainar.innerHTML = ""
 
+    videos.forEach(video => {
+        const videoCard = document.createElement("div");
+        videoCard.innerHTML = `
+        <div class="card bg-base-100 px-0">
+            <figure class="relative">
+              <img class = "w-full h-[200px] object-cover"
+                src="${video.thumbnail}"
+                alt="Shoes" />
+                <span class="absolute bottom-2 right-3 bg-black text-white rounded-sm px-2">3hrs 56 min ago</span>
+            </figure>
+            <div class="flex gap-3 py-5">
+                <div>
+                    <div class="avatar">
+                        <div div class="ring-primary ring-offset-base-100 w-10 rounded-full  ">
+                            <img src="${video.authors[0].profile_picture}" />
+                        </div>
+                    </div>      
+                </div>
+                <div class="intro">
+                    <h1 class="title font-bold text-base">${video.title}</h1>
+                    <p class="text-gray-400 text-base flex gap-5 items-center">
+                    ${video.authors[0].profile_name}
+                    ${video.authors[0].verified == true ? `<img class="w-6 h-6" src="https://img.icons8.com/?size=48&id=98A4yZTt9abw&format=png" alt="">` : ` `}
+                    </p>
+                    <p class="text-base text-gray-400">${video.others.views} views</p>
+                </div>
+            </div>
+
+            <button onclick = loadVideoDetails('${video.video_id}') class="btn btn-block">View Details</button>
+
+            </div>
+                `
+        videosContainar.append(videoCard)
+    });
+}
+
+
+document.getElementById("search_input").addEventListener("keyup", (e) =>{
+    const input = e.target.value
+    loadVideos(input)
+})
 
 
 loadCategories()
